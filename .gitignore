@@ -1,0 +1,15 @@
+# Compiled Python bytecode
+*.py[cod]
+
+# Package files
+*.jar
+
+# JetBrains IDE
+.idea/
+
+
+/venv
+__pycache__
+.vscode
+.idea
+/src/.venv
