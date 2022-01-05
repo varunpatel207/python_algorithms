@@ -19,6 +19,18 @@ class LinkedList:
             else:
                 current_node = current_node.next
 
+    def insert_after_number(self, new_number, after_number):
+        new_node = Node(new_number)
+
+        current_node = self.head
+        while current_node:
+            if current_node.value == after_number:
+                new_node.next = current_node.next
+                current_node.next = new_node
+                current_node = current_node.next
+            else:
+                current_node = current_node.next
+
     def iterate(self):
         current_node = self.head
         while current_node:
@@ -30,10 +42,13 @@ node_1 = Node(1)
 linked_list = LinkedList()
 linked_list.head = node_1
 
-list_1 = [2, 3, 4, 5]
+list_1 = [2, 3, 4, 6, 8]
 
 for number in list_1:
     linked_list.insert_end(value=number)
+
+linked_list.insert_after_number(5, 4)
+linked_list.insert_after_number(7, 6)
 
 linked_list.iterate()
 
