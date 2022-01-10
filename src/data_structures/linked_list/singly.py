@@ -3,6 +3,8 @@ class Node:
         self.value = value
         self.next = next
 
+    def __repr__(self):
+        return f"Node({self.value})"
 
 class LinkedList:
     def __init__(self, head=None):
@@ -43,11 +45,31 @@ class LinkedList:
             else:
                 current_node = current_node.next
 
-    def iterate(self):
+    def __len__(self):
+        return len(list(iter(self)))
+
+    def __iter__(self):
         current_node = self.head
         while current_node:
-            print(current_node.value)
+            yield current_node.value
             current_node = current_node.next
+
+    def __getitem__(self, index):
+        if index not in range(0, len(self)):
+            raise ValueError("Index out of range.")
+
+        for i, node in enumerate(self):
+            if index == i:
+                return node
+
+    def __setitem__(self, index, value):
+        if index not in range(0, len(self)):
+            raise ValueError("Index out of range.")
+
+        for i, node in enumerate(self):
+            if index == i:
+                node.value = value
+                return node
 
 
 node_1 = Node(1)
@@ -63,6 +85,6 @@ linked_list.insert_after_value(5, 4)
 linked_list.insert_after_value(7, 6)
 linked_list.insert_before_value(9, 10)
 
-linked_list.iterate()
+print(linked_list[9])
 
 
