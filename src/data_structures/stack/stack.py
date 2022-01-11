@@ -9,6 +9,9 @@ class Stack:
     def pop(self):
         self.stack.pop()
 
+    def is_empty(self):
+        return True if not self.stack else False
+
     def __repr__(self):
         return self.stack
 
@@ -16,7 +19,10 @@ class Stack:
         return str(self.stack)
 
 stack = Stack(limit=10)
+print(stack.is_empty())
 stack.push(1)
 stack.push(2)
-
+stack.push(1)
+print(stack)
+stack.pop()
 print(stack)
