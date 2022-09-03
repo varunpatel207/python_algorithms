@@ -1,9 +1,8 @@
 
 class Solution:
-    def addTwoNumbers(self, l1, l2):
-        for x, y in map(l1, l2):
-            print(x, y)
 
+    def addTwoNumbers(self, l1, l2):
+        pass
 
 
 s = Solution()

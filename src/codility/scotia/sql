@@ -1,0 +1,7 @@
+SELECT department.dept_id as dept_id, sub_query.count as count, sub_query.sum_of_salary as sum_of_salary
+FROM department,
+    (SELECT employee.dept_id, SUM(employee.salary) sum_of_salary, COUNT(employee.emp_id) count
+    FROM employee
+    GROUP BY dept_id) sub_query
+WHERE sub_query.dept_id = departments.dept_id
+ORDER BY dept_id;
