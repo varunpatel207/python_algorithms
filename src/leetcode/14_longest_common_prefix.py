@@ -1,14 +1,22 @@
-# TODO: solve this
+
 class Solution:
     def longestCommonPrefix(self, strs):
-        min_length = len(min(strs, key=len))
-        # for string in strs:
-        print(min_length)
+        min_string = min(strs, key=len)
+        strs.remove(min_string)
 
-        common_substring = ""
-        for index in range(len(min(strs, key=len))):
-            for string in strs:
-                common_substring += string[index]
+        prefix_str = ""
+        if strs:
+            for index, character in enumerate(min_string):
+                for inner_index, string in enumerate(strs):
+                    if string[index] != character:
+                        return prefix_str
+
+                    if inner_index == len(strs) - 1:
+                        prefix_str += character
+        else:
+            return min_string
+
+        return prefix_str
 
 s = Solution()
-s.longestCommonPrefix(["flower","flow","flight"])
+sol = s.longestCommonPrefix(["dog"])
